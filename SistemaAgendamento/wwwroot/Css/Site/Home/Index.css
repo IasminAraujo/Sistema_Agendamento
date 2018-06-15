@@ -1,0 +1,23 @@
+﻿.container-fluid {
+    padding: 0px;
+}
+
+.navbar {
+    height: 70px;
+    padding-top: 10px;
+    border-radius: 0px;
+    background-color: #CDDFA0;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #183F32;
+    font-weight: 600;
+}
+
+    .navbar-default .navbar-nav > li > a:hover {
+        color: #125D36;
+    }
+
+.navbar-brand {
+    padding: 0px 10px 0px 25px;
+}

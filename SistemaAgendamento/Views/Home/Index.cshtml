@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="~/Css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Css/Site/Home/Index.css" rel="stylesheet" />
+    <title>Vital Quick</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="navbar-brand">
+                        <img src="~/Images/vital-quick.png" />
+                    </div>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="javascript:void(0)" onclick="Navegar('Agendamento');">Home <span class="sr-only">(current)</span></a></li>
+                        <li><a href="javascript:void(0)" onclick="Navegar('Agenda');">Agenda</a></li>
+                        <li><a href="javascript:void(0)" onclick="Navegar('Colaboradores');">Colaboradores</a></li>
+                        <li><a href="javascript:void(0)" onclick="Navegar('Clientes');">Clientes</a></li>
+                        <li><a href="javascript:void(0)" onclick="Navegar('CategoriaServicos');">Categoria de Serviços</a></li>
+                        <li><a href="javascript:void(0)" onclick="Navegar('Servicos');">Serviços</a></li>
+                        <li><a href="javascript:void(0)" onclick="Navegar('PacoteServicos');">Pacote de Serviços</a></li>
+                        <li><a href="javascript:void(0)" onclick="Navegar('Usuarios');">Usuários</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container-fluid">
+            <div class="ConteudoSite">
+            </div>
+        </div>
+    </div>
+    <script src="~/Scripts/jquery-3.3.1.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/bootstrap.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/mustache.js" type="text/javascript"></script>
+    <script src="~/Scripts/Site/Home/Index.js" type="text/javascript"></script>
+</body>
+</html>

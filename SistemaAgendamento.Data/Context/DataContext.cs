@@ -34,7 +34,7 @@ namespace SistemaAgendamento.Data.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("data source=DESKTOP-BKV0IQB\\MSSQLSERVER02;initial catalog=VitalQuick;user id=DESKTOP-BKV0IQB\\Iasmin;MultipleActiveResultSets=True;App=EntityFramework");
+            optionsBuilder.UseSqlServer("Server=DESKTOP-BKV0IQB\\MSSQLSERVER03;Database=VitalQuick;Trusted_Connection=True;MultipleActiveResultSets=True;App=EntityFramework");
         }
     }
 }

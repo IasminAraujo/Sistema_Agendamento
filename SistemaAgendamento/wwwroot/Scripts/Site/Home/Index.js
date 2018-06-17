@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-    $.get("/Agendamento").done(function (ret) {
+    $.get("/CategoriaServicos").done(function (ret) {
         $('.ConteudoSite').html(ret);
     });
 });

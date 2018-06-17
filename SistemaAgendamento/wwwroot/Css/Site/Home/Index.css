@@ -21,3 +21,37 @@
 .navbar-brand {
     padding: 0px 10px 0px 25px;
 }
+
+.btn-default {
+    background-color: #CDDFA0;
+    color: #183F32;
+}
+
+    .btn-default:hover {
+        background-color: #125D36;
+        color: #CDDFA0;
+    }
+
+.btn-i > i {
+    margin-right: 10px;
+}
+
+.titulopagina {
+    text-align: center;
+    color: #183F32;
+    margin-bottom: 20px;
+}
+
+.envelope-pesquisa {
+    width: 510px;
+    margin: 0 auto;
+}
+
+.box-pesquisa {
+    padding: 10px 15px;
+    border: 1px solid #183F32;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px 0 #183F32;
+    margin-bottom: 20px;
+}
+

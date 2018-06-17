@@ -12,13 +12,13 @@ namespace SistemaAgendamento.Controllers
     {
         public IActionResult Index()
         {
-            using (var repo = new T005_CategoriaServicosRepository())
-            {
-                var a = repo.SelectAll();
-                var b = JsonConvert.SerializeObject(a, new JsonSerializerSettings { Formatting = Formatting.Indented, ReferenceLoopHandling = ReferenceLoopHandling.Ignore });
-                return Json(a);
-            }
-           // return View();
+            //using (var repo = new T005_CategoriaServicosRepository())
+            //{
+            //    var a = repo.SelectAll();
+            //    var b = JsonConvert.SerializeObject(a, new JsonSerializerSettings { Formatting = Formatting.Indented, ReferenceLoopHandling = ReferenceLoopHandling.Ignore });
+            //    return Json(a);
+            //}
+            return View();
         }
     }
 }

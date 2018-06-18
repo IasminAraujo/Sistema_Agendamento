@@ -45,5 +45,24 @@ namespace SistemaAgendamento.Controllers
                 return Json(e.Message);
             }
         }
+
+        [HttpPost]
+        public IActionResult AdicionaCategoria([FromBody] T005_CategoriaServicos dados)
+        {
+            try
+            {
+                using (var repository = new T005_CategoriaServicosRepository())
+                {
+                    var categoria = new T005_CategoriaServicos();
+                    categoria.A005_nome = dados.A005_nome;
+                    repository.Insert(categoria);
+                }
+                return Json("sucesso");
+            }
+            catch (Exception e)
+            {
+                return Json(e.Message);
+            }
+        }
     }
 }

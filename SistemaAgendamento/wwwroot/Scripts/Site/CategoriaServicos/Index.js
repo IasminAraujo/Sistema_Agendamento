@@ -8,7 +8,6 @@ function GetCategorias() {
             var template = $('#TemplateTabelaCategoria').html();
             var rendered = Mustache.render(template, { Categoria: data });
             $('#CorpoTabelaCategoria').html(rendered);
-            console.log('passou aqui');
         }
     );
 }

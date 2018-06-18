@@ -55,3 +55,19 @@
     margin-bottom: 20px;
 }
 
+.table-striped > thead > tr {
+    background-color: #125D36;
+    color: white;
+}
+
+.table-striped > tbody > tr:nth-child(odd) > td,
+.table-striped > tbody > tr:nth-child(odd) > th {
+    background-color: #CDDFA0;
+    border-color: #CDDFA0;
+}
+
+.modal-header,
+.modal-footer {
+    background-color: #CDDFA0;
+    color: #125D36;
+}

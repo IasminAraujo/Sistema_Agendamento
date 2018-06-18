@@ -1,4 +1,6 @@
-﻿$(document).ready(function () {
+﻿var idCategoria;
+
+$(document).ready(function () {
     GetCategorias();
 });
 
@@ -18,3 +20,18 @@ $('#BtnNovaCategoria').click(function () {
         $('.modal').modal('show');
     });
 });
+
+$('#CorpoTabelaCategoria').on('click', '[name=Editar]', function (e) {
+    idCategoria = $($(this).parent().parent().find("td")[0]).attr('id');
+    $.get("/CategoriaServicos/Editar").done(function (ret) {
+        $('.modal-content').html(ret);
+        $('.modal').modal('show');
+        CarregarDadosEditarCategoria();
+    });
+});
+
+function CarregarDadosEditarCategoria() {
+    $.getJSON("CategoriaServicos/GetCategoriaById?id=" + idCategoria).done(function (dados) {
+        $('[name=NomeCategoria]').val(dados.a005_nome);
+    });
+}

@@ -18,7 +18,12 @@ namespace SistemaAgendamento.Controllers
         {
             return View();
         }
+        public IActionResult Editar()
+        {
+            return View();
+        }
 
+        [HttpGet]
         public IActionResult GetCategorias()
         {
             try
@@ -42,6 +47,28 @@ namespace SistemaAgendamento.Controllers
             catch (Exception e)
             {
 
+                return Json(e.Message);
+            }
+        }
+
+        [HttpGet]
+        public IActionResult GetCategoriaById(int id)
+        {
+            try
+            {
+                T005_CategoriaServicos categoria;
+                using (var repository = new T005_CategoriaServicosRepository())
+                {
+                    categoria =repository.GetCategoriaById(id);
+                }
+                var retorno = new T005_CategoriaServicos()
+                {
+                    A005_nome = categoria.A005_nome
+                };
+                return Json(retorno);
+            }
+            catch (Exception e)
+            {
                 return Json(e.Message);
             }
         }

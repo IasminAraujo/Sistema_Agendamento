@@ -14,14 +14,14 @@ function GetCategorias() {
     );
 }
 
-$('#BtnNovaCategoria').click(function () {
+$('[name=BtnNovaCategoria]').click(function () {
     $.get("/CategoriaServicos/Adicionar").done(function (ret) {
         $('#ModalCategoria').html(ret);
         $('.modal').modal('show');
     });
 });
 
-$('#CorpoTabelaCategoria').on('click', '[name=Editar]', function (e) {
+$('#CorpoTabelaCategoria').on('click', '[name=EditarCategoria]', function (e) {
     idCategoria = $($(this).parent().parent().find("td")[0]).attr('id');
     $.get("/CategoriaServicos/Editar").done(function (ret) {
         $('.modal-content').html(ret);

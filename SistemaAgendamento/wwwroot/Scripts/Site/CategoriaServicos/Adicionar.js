@@ -1,8 +1,9 @@
-﻿$('#BtnAdicionaCategoria').click(function () {
-    $('[name=Salvar]').click();
+﻿$('#ModalCategoria').on('click', '[name = BtnAdicionaCategoria]',function () {
+    $('[name=SalvarCategoria]').click();
+    $('.modal').modal('hide');
 });
 
-$('#FormAdicionaCategoria').submit(function (e) {
+$('#ModalCategoria').on('submit', '#FormAdicionaCategoria',function (e) {
     e.preventDefault();
     var nomecategoria = $('[name=NomeCategoria]').val();
     var json = { A005_nome: nomecategoria }

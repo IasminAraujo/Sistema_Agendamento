@@ -1,5 +1,4 @@
-﻿<script src="~/Scripts/Site/CategoriaServicos/Index.js" type="text/javascript"></script>
-<div class="modal fade" tabindex="-1" role="dialog">
+﻿<div class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div id="ModalCategoria" class="modal-content">
         </div>
@@ -10,7 +9,7 @@
     <div class="box-pesquisa">
         <div class="row">
             <div class="col-lg-4">                
-                    <button id="BtnNovaCategoria" class="btn btn-default btn-i" type="button">
+                    <button name="BtnNovaCategoria" class="btn btn-default btn-i" type="button">
                         <i class="fa fa-plus"></i>Nova Categoria
                     </button>                
             </div>
@@ -44,10 +43,10 @@
         <td class="hidden" id="{{id}}"></td>
         <td>{{nome}}</td>
         <td>
-            <span name="Editar" class="btn btn-xs btn-warning">
+            <span name="EditarCategoria" class="btn btn-xs btn-warning">
                 <i class="fa fa-pencil"></i>
             </span>
-            <span name="Excluir" class="btn btn-xs btn-danger">
+            <span name="ExcluirCategoria" class="btn btn-xs btn-danger">
                 <i class="fa fa-times"></i>
             </span>
         </td>
@@ -57,3 +56,5 @@
     <h3>Não existem categorias geradas!</h3>
     {{/Categoria}}
 </script>
+<script src="~/Scripts/Site/CategoriaServicos/Index.js" type="text/javascript"></script>
+<script src="~/Scripts/Site/CategoriaServicos/Adicionar.js" type="text/javascript"></script>

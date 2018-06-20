@@ -35,3 +35,11 @@ function CarregarDadosEditarCategoria() {
         $('[name=NomeCategoria]').val(dados.a005_nome);
     });
 }
+
+$('#CorpoTabelaCategoria').on('click', '[name=ExcluirCategoria]', function (e) {
+    idCategoria = $($(this).parent().parent().find("td")[0]).attr('id');
+    $.get("/CategoriaServicos/Excluir").done(function (ret) {
+        $('.modal-content').html(ret);
+        $('.modal').modal('show');
+    });
+});

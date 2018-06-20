@@ -22,6 +22,10 @@ namespace SistemaAgendamento.Controllers
         {
             return View();
         }
+        public IActionResult Excluir()
+        {
+            return View();
+        }
 
         [HttpGet]
         public IActionResult GetCategorias()
@@ -100,6 +104,25 @@ namespace SistemaAgendamento.Controllers
                 using (var repository = new T005_CategoriaServicosRepository())
                 {
                     repository.Update(dados);
+                }
+                return Json("sucesso");
+            }
+            catch (Exception e)
+            {
+
+                return Json(e.Message);
+            }
+        }
+
+        [HttpGet]
+        public ActionResult ExcluirCategoria(int id)
+        {
+            try
+            {
+                using (var repository = new T005_CategoriaServicosRepository())
+                {
+                    var categoria = repository.GetCategoriaById(id);
+                    repository.Delete(categoria);
                 }
                 return Json("sucesso");
             }

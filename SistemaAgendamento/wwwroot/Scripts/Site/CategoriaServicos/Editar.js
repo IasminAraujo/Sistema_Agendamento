@@ -1,7 +1,6 @@
 ﻿$('#ModalCategoria').on('click', '[name=BtnEditaCategoria]', function () {
     $('[name=SalvarEdicao]').click();
     $('.modal').modal('hide');
-    console.log('log');
 });
 
 $('#ModalCategoria').on('submit', '#FormEditaCategoria', function (e) {

@@ -37,8 +37,8 @@ namespace SistemaAgendamento.Controllers
                 foreach (var item in lista)
                 {
                     retorno.Add(new {
-                        id = item.A005_id,
-                        nome = item.A005_nome,
+                        A005_id = item.A005_id,
+                        A005_nome = item.A005_nome,
                     });
                 }
 
@@ -61,7 +61,7 @@ namespace SistemaAgendamento.Controllers
                 {
                     categoria =repository.GetCategoriaById(id);
                 }
-                var retorno = new T005_CategoriaServicos()
+                var retorno = new T005_CategoriaServicosModel()
                 {
                     A005_nome = categoria.A005_nome
                 };
@@ -88,6 +88,24 @@ namespace SistemaAgendamento.Controllers
             }
             catch (Exception e)
             {
+                return Json(e.Message);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult EditarCategoria([FromBody] T005_CategoriaServicos dados)
+        {
+            try
+            {
+                using (var repository = new T005_CategoriaServicosRepository())
+                {
+                    repository.Update(dados);
+                }
+                return Json("sucesso");
+            }
+            catch (Exception e)
+            {
+
                 return Json(e.Message);
             }
         }

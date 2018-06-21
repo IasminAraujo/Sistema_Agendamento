@@ -10,7 +10,6 @@ namespace SistemaAgendamento.Data.Entities
         public string A006_nome { get; set; }
         public double? A006_valorsessao { get; set; }
         public string A006_tempoduracao { get; set; }
-        public int A005_id { get; set; }
-        public virtual T005_CategoriaServicosModel T005_CategoriaServicos { get; set; }
+        public string A005_nomecategoria { get; set; }
     }
 }

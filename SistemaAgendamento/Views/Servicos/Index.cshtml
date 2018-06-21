@@ -1,0 +1,65 @@
+﻿<div class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div id="ModalServico" class="modal-content">
+        </div>
+    </div>
+</div>
+<div class="envelope-pesquisa">
+    <h3 class="titulopagina">Serviços</h3>
+    <div class="box-pesquisa">
+        <div class="row">
+            <div class="col-lg-4">
+                <button name="BtnNovoServico" class="btn btn-default btn-i" type="button">
+                    <i class="fa fa-plus"></i>Novo Serviço
+                </button>
+            </div>
+            <div class="col-lg-8">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Pesquisar Serviço...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div id="TabelaServico" class="row">
+        <table class="table table-striped .table-responsive">
+            <thead>
+                <tr>
+                    <th>Categoria</th>
+                    <th>Nome</th>
+                    <th>Valor Sessão</th>
+                    <th>Tempo Duração</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="CorpoTabelaServico"></tbody>
+        </table>
+    </div>
+</div>
+<script type="text/x-handlebars" id="TemplateTabelaServico">
+    {{#Servico}}
+    <tr>
+        <td class="hidden" id="{{a006_id}}"></td>
+        <td>{{a005_nomecategoria}}</td>
+        <td>{{a006_nome}}</td>
+        <td>{{a006_valorsessao}}</td>
+        <td>{{a006_tempoduracao}}</td>
+        <td>
+            <span name="EditarServico" class="btn btn-xs btn-warning">
+                <i class="fa fa-pencil"></i>
+            </span>
+            <span name="ExcluirServico" class="btn btn-xs btn-danger">
+                <i class="fa fa-times"></i>
+            </span>
+        </td>
+    </tr>
+    {{/Servico}}
+    {{^Servico}}
+    <h3>Não existem serviços geradas!</h3>
+    {{/Servico}}
+</script>
+

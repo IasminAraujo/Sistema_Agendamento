@@ -41,8 +41,8 @@ namespace SistemaAgendamento.Controllers
                 foreach (var item in lista)
                 {
                     retorno.Add(new {
-                        A005_id = item.A005_id,
-                        A005_nome = item.A005_nome,
+                        item.A005_id,
+                        item.A005_nome,
                     });
                 }
 
@@ -63,7 +63,7 @@ namespace SistemaAgendamento.Controllers
                 T005_CategoriaServicos categoria;
                 using (var repository = new T005_CategoriaServicosRepository())
                 {
-                    categoria =repository.GetCategoriaById(id);
+                    categoria =repository.Select(id);
                 }
                 var retorno = new T005_CategoriaServicosModel()
                 {

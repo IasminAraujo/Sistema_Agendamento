@@ -1,0 +1,33 @@
+﻿<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title">Novo Serviço</h4>
+</div>
+<div class="modal-body">
+    <form id="FormAdicionaServico">
+        <div class="form-group">
+            <label>Categoria</label>
+            <select name="CategoriaServico" class="form-control">
+                <option hidden disabled selected value="">Selecione uma opção</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Nome</label>
+            <input name="NomeServico" type="text" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label>Valor Sessão</label>
+            <input name="ValorServico" type="text" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label>Tempo</label>
+            <input name="TempoServico" type="text" class="form-control" required />
+        </div>
+        <button class="hidden" name="SalvarServico" type="submit"></button>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+    <button name="BtnAdicionaServico" class="btn btn-success">
+        <i class="fa fa-check"></i>Adicionar
+    </button>
+</div>

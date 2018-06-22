@@ -121,7 +121,7 @@ namespace SistemaAgendamento.Controllers
             {
                 using (var repository = new T005_CategoriaServicosRepository())
                 {
-                    var categoria = repository.GetCategoriaById(id);
+                    var categoria = repository.Select(id);
                     repository.Delete(categoria);
                 }
                 return Json("sucesso");

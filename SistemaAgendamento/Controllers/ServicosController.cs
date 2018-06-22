@@ -28,16 +28,15 @@ namespace SistemaAgendamento.Controllers
                 {
                     lista = repository.SelectAll();
                 }
-                var retorno = new List<object>();
+                var retorno = new List<T006_ServicosModel>();
                 foreach (var item in lista)
                 {
-                    retorno.Add(new
+                    retorno.Add(new T006_ServicosModel
                     {
-                        item.A005_id,
-                        item.A006_id,
-                        item.A006_nome,
-                        item.A006_tempoduracao,
-                        item.A006_valorsessao
+                        A005_nomecategoria = GetCategoria(item.A005_id),
+                        A006_nome = item.A006_nome,
+                        A006_valorsessao = item.A006_valorsessao,
+                        A006_tempoduracao = item.A006_tempoduracao
                     });
                 }
 
@@ -47,6 +46,36 @@ namespace SistemaAgendamento.Controllers
             {
 
                 return Json(e.Message);
+            }
+        }
+
+        [HttpPost]
+        public IActionResult AdicionaServico([FromBody] T006_Servicos dados)
+        {
+            try
+            {
+                using (var repository = new T006_ServicosRepository())
+                {
+                    var servico = new T006_Servicos();
+                    servico.A006_nome = dados.A006_nome;
+                    servico.A006_tempoduracao = dados.A006_tempoduracao;
+                    servico.A006_valorsessao = dados.A006_valorsessao;
+                    servico.A005_id = dados.A005_id;
+                    repository.Insert(servico);
+                }
+                return Json("sucesso");
+            }
+            catch (Exception e)
+            {
+                return Json(e.Message);
+            }
+        }
+
+        private string GetCategoria(int id)
+        {
+            using (var repository = new T005_CategoriaServicosRepository())
+            {
+                return repository.Select(id).A005_nome;
             }
         }
     }

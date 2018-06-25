@@ -18,7 +18,10 @@ namespace SistemaAgendamento.Controllers
         {
             return View();
         }
-
+        public IActionResult Editar()
+        {
+            return View();
+        }
         public IActionResult GetServicos()
         {
             try
@@ -33,6 +36,7 @@ namespace SistemaAgendamento.Controllers
                 {
                     retorno.Add(new T006_ServicosModel
                     {
+                        A006_id = item.A006_id,
                         A005_nomecategoria = GetCategoria(item.A005_id),
                         A006_nome = item.A006_nome,
                         A006_valorsessao = item.A006_valorsessao,
@@ -45,6 +49,31 @@ namespace SistemaAgendamento.Controllers
             catch (Exception e)
             {
 
+                return Json(e.Message);
+            }
+        }
+
+        [HttpGet]
+        public IActionResult GetServicoById(int id)
+        {
+            try
+            {
+                T006_Servicos servico;
+                using (var repository = new T006_ServicosRepository())
+                {
+                    servico = repository.Select(id);
+                }
+                var retorno = new T006_ServicosModel()
+                {
+                    A006_nome = servico.A006_nome,
+                    A006_valorsessao = servico.A006_valorsessao,
+                    A006_tempoduracao = servico.A006_tempoduracao,
+                    A005_nomecategoria = GetCategoria(servico.A005_id)
+                };
+                return Json(retorno);
+            }
+            catch (Exception e)
+            {
                 return Json(e.Message);
             }
         }

@@ -29,3 +29,21 @@ function GetCategorias() {
         });
     });
 }
+
+$('#CorpoTabelaServicos').on('click', '[name=EditarServico]', function (e) {
+    idServico = $($(this).parent().parent().find("td")[0]).attr('id');
+    $.get("/Servicos/Editar").done(function (ret) {
+        $('.modal-content').html(ret);
+        $('.modal').modal('show');
+        CarregarDadosEditarServico();
+    });
+});
+
+function CarregarDadosEditarServico() {
+    $.getJSON("Servicos/GetServicoById?id=" + idServico).done(function (dados) {
+        GetCategorias();
+        $('[name=NomeServicoEditar]').val(dados.a006_nome);
+        $('[name=ValorServicoEditar]').val(dados.a006_valorsessao);
+        $('[name=TempoServicoEditar]').val(dados.a006_tempoduracao);
+    });
+}

@@ -107,5 +107,27 @@ namespace SistemaAgendamento.Controllers
                 return repository.Select(id).A005_nome;
             }
         }
+
+        [HttpPost]
+        public ActionResult EditarServico([FromBody] T006_Servicos dados)
+        {
+            try
+            {
+                using (var repository = new T006_ServicosRepository())
+                {
+                    var servico = repository.Select(dados.A006_id);
+                    servico.A006_nome = dados.A006_nome;
+                    servico.A006_valorsessao = dados.A006_valorsessao;
+                    servico.A006_tempoduracao = dados.A006_tempoduracao;
+                    servico.A005_id = dados.A005_id;
+                    repository.Update(servico);
+                }
+                return Json("sucesso");
+            }
+            catch (Exception e)
+            {
+                return Json(e.Message);
+            }
+        }
     }
 }

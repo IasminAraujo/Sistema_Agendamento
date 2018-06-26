@@ -4,7 +4,6 @@
         if (ret == "sucesso") {
             GetCategorias();
             $('.modal').modal('hide');
-            console.log('pooo');
         }
     });
 });

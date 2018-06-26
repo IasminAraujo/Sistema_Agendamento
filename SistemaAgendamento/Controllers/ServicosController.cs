@@ -22,6 +22,10 @@ namespace SistemaAgendamento.Controllers
         {
             return View();
         }
+        public IActionResult Excluir()
+        {
+            return View();
+        }
         public IActionResult GetServicos()
         {
             try
@@ -126,6 +130,25 @@ namespace SistemaAgendamento.Controllers
             }
             catch (Exception e)
             {
+                return Json(e.Message);
+            }
+        }
+
+        [HttpGet]
+        public ActionResult ExcluirServico(int id)
+        {
+            try
+            {
+                using (var repository = new T006_ServicosRepository())
+                {
+                    var servico = repository.Select(id);
+                    repository.Delete(servico);
+                }
+                return Json("sucesso");
+            }
+            catch (Exception e)
+            {
+
                 return Json(e.Message);
             }
         }

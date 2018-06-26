@@ -47,3 +47,11 @@ function CarregarDadosEditarServico() {
         $('[name=TempoServicoEditar]').val(dados.a006_tempoduracao);
     });
 }
+
+$('#CorpoTabelaServicos').on('click', '[name=ExcluirServico]', function (e) {
+    idServico = $($(this).parent().parent().find("td")[0]).attr('id');
+    $.get("/Servicos/Excluir").done(function (ret) {
+        $('.modal-content').html(ret);
+        $('.modal').modal('show');
+    });
+});

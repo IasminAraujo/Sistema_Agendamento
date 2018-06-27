@@ -1,0 +1,35 @@
+﻿<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title">Novo Pacote</h4>
+</div>
+<div class="modal-body">
+    <form id="FormAdicionaPacote">
+        <div class="form-group">
+            <label>Categoria</label>
+            <select name="CategoriaServico" class="form-control">
+                <option hidden disabled selected value="">Selecione uma opção</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Servico</label>
+            <select name="Servicos" class="form-control">
+                <option hidden disabled selected value="">Selecione uma opção</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Quantidade de Sessões</label>
+            <input name="QuantidadeSessoes" type="text" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label>Valor</label>
+            <input name="ValorPacote" type="text" class="form-control"/>
+        </div>
+        <button class="hidden" name="SalvarServico" type="submit"></button>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+    <button name="BtnAdicionaServico" class="btn btn-success">
+        <i class="fa fa-check"></i>Adicionar
+    </button>
+</div>

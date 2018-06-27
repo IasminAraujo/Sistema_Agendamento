@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using SistemaAgendamento.Data.Entities;
+using SistemaAgendamento.Data.Repositoryes;
 
 namespace SistemaAgendamento.Controllers
 {
@@ -11,6 +13,55 @@ namespace SistemaAgendamento.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+        public IActionResult Adicionar()
+        {
+            return View();
+        }
+
+        public IActionResult GetPacotes()
+        {
+            try
+            {
+                List<T007_PacoteServicos> lista;
+                using (var repository = new T007_PacoteServicosRepository())
+                {
+                    lista = repository.SelectAll();
+                }
+                var retorno = new List<T007_PacoteServicosModel>();
+                foreach (var item in lista)
+                {
+                    retorno.Add(new T007_PacoteServicosModel
+                    {
+                        A007_id = item.A007_id,
+                        A007_quantsessao = item.A007_quantsessao,
+                        A007_valorpacote = item.A007_valorpacote,
+                        A005_nomecategoria = GetCategoria(item.A005_id),
+                        A006_nomeservico = GetServico(item.A006_id)
+                    });
+                }
+
+                return Json(retorno);
+            }
+            catch (Exception e)
+            {
+
+                return Json(e.Message);
+            }
+        }
+        private string GetCategoria(int id)
+        {
+            using (var repository = new T005_CategoriaServicosRepository())
+            {
+                return repository.Select(id).A005_nome;
+            }
+        }
+        private string GetServico(int id)
+        {
+            using (var repository = new T006_ServicosRepository())
+            {
+                return repository.Select(id).A006_nome;
+            }
         }
     }
 }

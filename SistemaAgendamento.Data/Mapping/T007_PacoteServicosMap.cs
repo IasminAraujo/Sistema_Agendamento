@@ -16,6 +16,8 @@ namespace SistemaAgendamento.Data.Mapping
             builder.Property(p => p.A007_quantsessao)
                 .IsRequired();
 
+            builder.Property(p => p.A007_valorpacote);
+
             builder.HasOne(p => p.T005_CategoriaServicos)
                 .WithMany(p => p.T007_PacoteServicos)
                 .HasForeignKey(p => p.A005_id);

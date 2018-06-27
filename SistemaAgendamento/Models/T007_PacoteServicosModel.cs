@@ -8,9 +8,9 @@ namespace SistemaAgendamento.Data.Entities
     {
         public int A007_id { get; set; }
         public int A007_quantsessao { get; set; }
-        public int A005_id { get; set; }
-        public int A006_id { get; set; }
-        public virtual T005_CategoriaServicosModel T005_CategoriaServicos { get; set; }
-        public virtual T006_ServicosModel T006_Servicos { get; set; }
+        public int A007_valorpacote { get; set; }
+        public string A005_nomecategoria { get; set; }
+        public string A006_nomeservico { get; set; }
+
     }
 }

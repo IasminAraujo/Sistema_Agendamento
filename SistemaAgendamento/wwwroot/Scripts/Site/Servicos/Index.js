@@ -42,6 +42,7 @@ $('#CorpoTabelaServicos').on('click', '[name=EditarServico]', function (e) {
 function CarregarDadosEditarServico() {
     $.getJSON("Servicos/GetServicoById?id=" + idServico).done(function (dados) {
         GetCategorias();
+        $('[name=CategoriaServico]').val(dados.a005_id);
         $('[name=NomeServicoEditar]').val(dados.a006_nome);
         $('[name=ValorServicoEditar]').val(dados.a006_valorsessao);
         $('[name=TempoServicoEditar]').val(dados.a006_tempoduracao);

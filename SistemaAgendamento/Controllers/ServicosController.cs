@@ -69,6 +69,7 @@ namespace SistemaAgendamento.Controllers
                 }
                 var retorno = new T006_ServicosModel()
                 {
+                    A005_id = servico.A005_id,
                     A006_nome = servico.A006_nome,
                     A006_valorsessao = servico.A006_valorsessao,
                     A006_tempoduracao = servico.A006_tempoduracao,

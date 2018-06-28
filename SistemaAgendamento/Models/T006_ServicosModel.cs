@@ -11,5 +11,6 @@ namespace SistemaAgendamento.Data.Entities
         public double? A006_valorsessao { get; set; }
         public string A006_tempoduracao { get; set; }
         public string A005_nomecategoria { get; set; }
+        public int A005_id { get; set; }
     }
 }

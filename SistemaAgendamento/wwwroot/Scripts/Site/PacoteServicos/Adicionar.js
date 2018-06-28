@@ -6,10 +6,10 @@
 $('#ModalPacote').on('submit', '#FormAdicionaPacote', function (e) {
     e.preventDefault();
     var categoria = $('[name=CategoriaServico]').find(':selected').attr('id');
-    var servico = $('[name=Servico]').find(':selected').attr('id');
-    var valorpacote = $('[name=ValorServico]').val();
-    var quantidadeSessao = $('[name=TempoServico]').val();
-    var json = { A006_nome: nomeservico, A006_valorsessao: valorservico, A006_tempoduracao: temposervico, A005_id: categoria }
+    var servico = $('[name=Servicos]').find(':selected').attr('id');
+    var valorpacote = $('[name=ValorPacote]').val();
+    var quantidadeSessoes = $('[name=QuantidadeSessoes]').val();
+    var json = { A007_quantsessao: quantidadeSessoes, A007_valorpacote: valorpacote, A006_id: servico, A005_id: categoria }
     $.ajax({
         url: 'PacoteServicos/AdicionaPacote',
         contentType: 'application/json',

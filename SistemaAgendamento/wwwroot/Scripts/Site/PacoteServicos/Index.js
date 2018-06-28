@@ -1,15 +1,15 @@
 ﻿var idPacote;
 $(document).ready(function () {
     GetPacotes();
-    console.log('hue');
 });
 
 function GetPacotes() {
     $.getJSON('PacoteServicos/GetPacotes').done(
         function (data) {
             var template = $('#TemplateTabelaPacotes').html();
-            var rendered = Mustache.render(template, { Servico: data });
+            var rendered = Mustache.render(template, { Pacote: data });
             $('#CorpoTabelaPacotes').html(rendered);
+            console.log(data);
         }
     );
 }
@@ -33,7 +33,6 @@ function GetCategorias() {
 
 function GetServicos() {
     $.getJSON('Servicos/GetServicos').done(function (ret) {
-        console.log("lala");
         ret.forEach(function (v) {
             $('[name=Servicos]').append('<option id="' + v.a006_id + '">' + v.a006_nome + '</option>');
         });

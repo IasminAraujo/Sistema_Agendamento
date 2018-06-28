@@ -1,7 +1,6 @@
 ﻿$('#ModalServico').on('click', '[name=BtnEditaServico]', function () {
     $('[name=SalvarAlteracoesServico]').click();
     $('.modal').modal('hide');
-    console.log('lll');
 });
 
 $('#ModalServico').on('submit', '#FormEditaServico', function (e) {

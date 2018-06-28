@@ -118,5 +118,27 @@ namespace SistemaAgendamento.Controllers
                 return Json(e.Message);
             }
         }
+
+        [HttpPost]
+        public ActionResult EditarPacote([FromBody] T007_PacoteServicos dados)
+        {
+            try
+            {
+                using (var repository = new T007_PacoteServicosRepository())
+                {
+                    var pacote = repository.Select(dados.A007_id);
+                    pacote.A007_quantsessao = dados.A007_quantsessao;
+                    pacote.A007_valorpacote = dados.A007_valorpacote;
+                    pacote.A005_id = dados.A005_id;
+                    pacote.A006_id = dados.A006_id;
+                    repository.Update(pacote);
+                }
+                return Json("sucesso");
+            }
+            catch (Exception e)
+            {
+                return Json(e.Message);
+            }
+        }
     }
 }

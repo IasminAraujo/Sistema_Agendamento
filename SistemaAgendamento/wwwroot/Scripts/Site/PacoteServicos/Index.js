@@ -9,7 +9,6 @@ function GetPacotes() {
             var template = $('#TemplateTabelaPacotes').html();
             var rendered = Mustache.render(template, { Pacote: data });
             $('#CorpoTabelaPacotes').html(rendered);
-            console.log(data);
         }
     );
 }
@@ -58,3 +57,11 @@ function CarregarDadosEditarPacote() {
         $('[name=ValorPacoteEditar]').val(dados.a007_valorpacote);
     });
 }
+
+$('#CorpoTabelaPacotes').on('click', '[name=ExcluirPacote]', function (e) {
+    idPacote = $($(this).parent().parent().find("td")[0]).attr('id');
+    $.get("/PacoteServicos/Excluir").done(function (ret) {
+        $('.modal-content').html(ret);
+        $('.modal').modal('show');
+    });
+});

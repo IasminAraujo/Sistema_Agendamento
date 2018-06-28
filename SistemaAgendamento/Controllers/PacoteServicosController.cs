@@ -18,12 +18,14 @@ namespace SistemaAgendamento.Controllers
         {
             return View();
         }
-
         public IActionResult Editar()
         {
             return View();
         }
-
+        public IActionResult Excluir()
+        {
+            return View();
+        }
 
         public IActionResult GetPacotes()
         {
@@ -137,6 +139,25 @@ namespace SistemaAgendamento.Controllers
             }
             catch (Exception e)
             {
+                return Json(e.Message);
+            }
+        }
+
+        [HttpGet]
+        public ActionResult ExcluirPacote(int id)
+        {
+            try
+            {
+                using (var repository = new T007_PacoteServicosRepository())
+                {
+                    var pacote = repository.Select(id);
+                    repository.Delete(pacote);
+                }
+                return Json("sucesso");
+            }
+            catch (Exception e)
+            {
+
                 return Json(e.Message);
             }
         }

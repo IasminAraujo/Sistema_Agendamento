@@ -19,6 +19,12 @@ namespace SistemaAgendamento.Controllers
             return View();
         }
 
+        public IActionResult Editar()
+        {
+            return View();
+        }
+
+
         public IActionResult GetPacotes()
         {
             try
@@ -46,6 +52,34 @@ namespace SistemaAgendamento.Controllers
             catch (Exception e)
             {
 
+                return Json(e.Message);
+            }
+        }
+
+        [HttpGet]
+        public IActionResult GetPacoteById(int id)
+        {
+            try
+            {
+                T007_PacoteServicos pacote;
+                using (var repository = new T007_PacoteServicosRepository())
+                {
+                    pacote = repository.Select(id);
+                }
+                var retorno = new T007_PacoteServicosModel()
+                {
+                    A007_id = pacote.A007_id,
+                    A007_quantsessao = pacote.A007_quantsessao,
+                    A007_valorpacote = pacote.A007_valorpacote,
+                    A005_id = pacote.A005_id,
+                    A006_id = pacote.A006_id,
+                    A005_nomecategoria = GetCategoria(pacote.A005_id),
+                    A006_nomeservico = GetServico(pacote.A006_id)
+                };
+                return Json(retorno);
+            }
+            catch (Exception e)
+            {
                 return Json(e.Message);
             }
         }

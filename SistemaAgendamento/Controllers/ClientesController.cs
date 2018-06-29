@@ -18,6 +18,14 @@ namespace SistemaAgendamento.Controllers
         {
             return View();
         }
+        public IActionResult Editar()
+        {
+            return View();
+        }
+        public IActionResult Excluir()
+        {
+            return View();
+        }
 
         public IActionResult GetClientes()
         {
@@ -33,6 +41,7 @@ namespace SistemaAgendamento.Controllers
                 {
                     retorno.Add(new T004_ClientesModel
                     {
+                        A004_id = item.A004_id,
                         A004_nome = item.A004_nome,
                         A004_email = item.A004_email,
                         A004_endereco = item.A004_endereco,
@@ -48,6 +57,33 @@ namespace SistemaAgendamento.Controllers
                 return Json(e.Message);
             }
         }
+
+        [HttpGet]
+        public IActionResult GetClienteById(int id)
+        {
+            try
+            {
+                T004_Clientes cliente;
+                using (var repository = new T004_ClientesRepository())
+                {
+                    cliente = repository.Select(id);
+                }
+                var retorno = new T004_ClientesModel()
+                {
+                    A004_id = cliente.A004_id,
+                    A004_nome = cliente.A004_nome,
+                    A004_email = cliente.A004_email,
+                    A004_endereco = cliente.A004_endereco,
+                    A004_telefone = cliente.A004_telefone
+                };
+                return Json(retorno);
+            }
+            catch (Exception e)
+            {
+                return Json(e.Message);
+            }
+        }
+
         [HttpPost]
         public IActionResult AdicionaCliente([FromBody] T004_Clientes dados)
         {
@@ -66,6 +102,47 @@ namespace SistemaAgendamento.Controllers
             }
             catch (Exception e)
             {
+                return Json(e.Message);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult EditarCliente([FromBody] T004_Clientes dados)
+        {
+            try
+            {
+                using (var repository = new T004_ClientesRepository())
+                {
+                    var cliente = repository.Select(dados.A004_id);
+                    cliente.A004_nome = dados.A004_nome;
+                    cliente.A004_telefone = dados.A004_telefone;
+                    cliente.A004_email = dados.A004_email;
+                    cliente.A004_endereco = dados.A004_endereco;
+                    repository.Update(cliente);
+                }
+                return Json("sucesso");
+            }
+            catch (Exception e)
+            {
+                return Json(e.Message);
+            }
+        }
+
+        [HttpGet]
+        public ActionResult ExcluirCliente(int id)
+        {
+            try
+            {
+                using (var repository = new T004_ClientesRepository())
+                {
+                    var cliente = repository.Select(id);
+                    repository.Delete(cliente);
+                }
+                return Json("sucesso");
+            }
+            catch (Exception e)
+            {
+
                 return Json(e.Message);
             }
         }

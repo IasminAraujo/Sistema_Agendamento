@@ -20,14 +20,6 @@ namespace SistemaAgendamento.Data.Mapping
             builder.Property(p => p.A002_numero)
                 .HasMaxLength(255)
                 .IsRequired();
-
-            builder.HasMany(t => t.T003_Colaboradores)
-                .WithOne(p => p.T002_Telefone)
-                .HasForeignKey(p => p.A001_id);
-
-            builder.HasMany(t => t.T004_Clientes)
-                .WithOne(p => p.T002_Telefone)
-                .HasForeignKey(p => p.A001_id);
         }
     }
 }

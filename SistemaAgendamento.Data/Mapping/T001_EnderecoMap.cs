@@ -26,15 +26,6 @@ namespace SistemaAgendamento.Data.Mapping
 
             builder.Property(p => p.A001_complemento)
                 .HasMaxLength(255);
-
-            builder.HasMany(t => t.T003_Colaboradores)
-                .WithOne(p => p.T001_Endereco)
-                .HasForeignKey(p => p.A001_id);
-
-            builder.HasMany(t => t.T004_Clientes)
-                .WithOne(p => p.T001_Endereco)
-                .HasForeignKey(p => p.A001_id);
-
         }
     }
 }

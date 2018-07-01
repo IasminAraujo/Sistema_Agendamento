@@ -1,0 +1,64 @@
+﻿<div class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div id="ModalColaborador" class="modal-content">
+        </div>
+    </div>
+</div>
+<div class="envelope-pesquisa">
+    <h3 class="titulopagina">Colaboradores</h3>
+    <div class="box-pesquisa">
+        <div class="row">
+            <div class="col-lg-4">
+                <button name="BtnNovoCliente" class="btn btn-default btn-i" type="button">
+                    <i class="fa fa-plus"></i>Novo Colaborador
+                </button>
+            </div>
+            <div class="col-lg-8">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Pesquisar Colaborador...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div id="TabelaColaboradores" class="row">
+        <table class="table table-striped .table-responsive">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Endereço</th>
+                    <th>Telefone</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="CorpoTabelaColaboradores"></tbody>
+        </table>
+    </div>
+</div>
+<script type="text/x-handlebars" id="TemplateTabelaColaboradores">
+    {{#Cliente}}
+    <tr>
+        <td class="hidden" id="{{a003_id}}"></td>
+        <td>{{a003_nome}}</td>
+        <td>{{a003_email}}</td>
+        <td>{{a003_endereco}}</td>
+        <td>{{a003_telefone}}</td>
+        <td>
+            <span name="EditarColaborador" class="btn btn-xs btn-warning">
+                <i class="fa fa-pencil"></i>
+            </span>
+            <span name="ExcluirColaborador" class="btn btn-xs btn-danger">
+                <i class="fa fa-times"></i>
+            </span>
+        </td>
+    </tr>
+    {{/Cliente}}
+    {{^Cliente}}
+    <h3>Não existem Colaboradores gerados!</h3>
+    {{/Cliente}}
+</script>

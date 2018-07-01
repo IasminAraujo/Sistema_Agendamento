@@ -1,0 +1,32 @@
+﻿<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title">Edita Colaborador</h4>
+</div>
+<div class="modal-body">
+    <form id="FormEditaColaborador">
+        <div class="form-group">
+            <label>Nome</label>
+            <input name="NomeClienteColaborador" type="text" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label>Telefone</label>
+            <input name="NumTelefoneColaboradorEditar" type="text" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input name="EmailColaboradorEditar" type="text" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label>Endereço</label>
+            <input name="RuaEditar" type="text" class="form-control" required />
+        </div>
+        <button class="hidden" name="SalvarAlteracoesColaborador" type="submit"></button>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+    <button name="BtnEditaColaborador" class="btn btn-success">
+        <i class="fa fa-check"></i>Editar
+    </button>
+</div>
+

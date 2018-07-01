@@ -1,7 +1,6 @@
 ﻿$('#ModalCliente').on('click', '[name = BtnAdicionaCliente]', function () {
     $('[name=SalvarCliente]').click();
     $('.modal').modal('hide');
-    console.log('jjj');
 });
 
 $('#ModalCliente').on('submit', '#FormAdicionaCliente', function (e) {

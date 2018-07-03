@@ -51,6 +51,41 @@ $('#CorpoTabelaClientes').on('click', '[name=AgendarCliente]', function (e) {
     idCliente = $($(this).parent().parent().find("td")[0]).attr('id');
     $.get("/Clientes/Agendar").done(function (ret) {
         $('.modal-content').html(ret);
+        GetNomeCliente();
+        GetColaboradores();
+        GetCategorias();
+        GetServicos();
         $('.modal').modal('show');
     });
 });
+
+function GetColaboradores() {
+    $.getJSON('Colaboradores/GetColaboradores').done(function (ret) {
+        ret.forEach(function (v) {
+            $('[name=Colaboradores]').append('<option id="' + v.a003_id + '">' + v.a003_nome + '</option>');
+        });
+    });
+}
+
+function GetNomeCliente() {
+    $.getJSON("Clientes/GetClienteById?id=" + idCliente)
+        .done(function (cli) {
+            $('#myModalLabel').html('Agendamento para: ' + cli.a004_nome);
+        });
+}
+
+function GetCategorias() {
+    $.getJSON('CategoriaServicos/GetCategorias').done(function (ret) {
+        ret.forEach(function (v) {
+            $('[name=CategoriaServico]').append('<option id="' + v.a005_id + '">' + v.a005_nome + '</option>');
+        });
+    });
+}
+
+function GetServicos() {
+    $.getJSON('Servicos/GetServicos').done(function (ret) {
+        ret.forEach(function (v) {
+            $('[name=Servicos]').append('<option id="' + v.a006_id + '">' + v.a006_nome + '</option>');
+        });
+    });
+}

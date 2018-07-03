@@ -16,6 +16,11 @@ namespace SistemaAgendamento.Controllers
             return View();
         }
 
+        public IActionResult Remarcar()
+        {
+            return View();
+        }
+
         public IActionResult Excluir()
         {
             return View();
@@ -48,6 +53,30 @@ namespace SistemaAgendamento.Controllers
             catch (Exception e)
             {
 
+                return Json(e.Message);
+            }
+        }
+
+        [HttpGet]
+        public IActionResult GetAgendamentoById(int id)
+        {
+            try
+            {
+                T009_Agendamento agendamento;
+                using (var repository = new T009_AgendamentoRepository())
+                {
+                    agendamento = repository.Select(id);
+                }
+                var retorno = new T009_AgendamentoModel()
+                {
+                    A009_id = agendamento.A009_id,
+                    A009_dataDT = string.Format("{0:yyyy-MM-dd}", agendamento.A009_data),
+                    A004_nomecliente = GetClientes(agendamento.A004_id),
+                };
+                return Json(retorno);
+            }
+            catch (Exception e)
+            {
                 return Json(e.Message);
             }
         }
@@ -96,6 +125,25 @@ namespace SistemaAgendamento.Controllers
                     agendamento.A005_id = dados.A005_id;
                     agendamento.A006_id = dados.A006_id;
                     repository.Insert(agendamento);
+                }
+                return Json("sucesso");
+            }
+            catch (Exception e)
+            {
+                return Json(e.Message);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult RemarcarAgendamento([FromBody] T009_Agendamento dados)
+        {
+            try
+            {
+                using (var repository = new T009_AgendamentoRepository())
+                {
+                    var agendamento = repository.Select(dados.A009_id);
+                    agendamento.A009_data = dados.A009_data;
+                    repository.Update(agendamento);
                 }
                 return Json("sucesso");
             }

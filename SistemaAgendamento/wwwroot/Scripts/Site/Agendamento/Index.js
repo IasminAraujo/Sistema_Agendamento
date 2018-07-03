@@ -21,3 +21,26 @@ $('#CorpoTabelaAgendamento').on('click', '[name=ExcluirAgendamento]', function (
         $('.modal').modal('show');
     });
 });
+
+$('#CorpoTabelaAgendamento').on('click', '[name=RemarcarAgendamento]', function (e) {
+    idAgendamento = $($(this).parent().parent().find("td")[0]).attr('id');
+    $.get("/Agendamento/Remarcar").done(function (ret) {
+        $('.modal-content').html(ret);
+        GetNomeClienteRemarcar();
+        $('.modal').modal('show');
+        CarregarData();
+    });
+});
+
+function GetNomeClienteRemarcar() {
+    $.getJSON("Agendamento/GetAgendamentoById?id=" + idAgendamento)
+        .done(function (cli) {
+            $('#myModalLabel').html('Remarcar para: ' + cli.a004_nomecliente);
+        });
+}
+
+function CarregarData() {
+    $.getJSON("Agendamento/GetAgendamentoById?id=" + idAgendamento).done(function (dados) {
+        $('[name=Data]').val(dados.a009_dataDT);
+    });
+}

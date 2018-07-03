@@ -19,6 +19,7 @@ namespace SistemaAgendamento.Data.Context
         public virtual DbSet<T006_Servicos> T006_Servicos { get; set; }
         public virtual DbSet<T007_PacoteServicos> T007_PacoteServicos { get; set; }
         public virtual DbSet<T008_Disponibilidade> T008_Disponibilidade { get; set; }
+        public virtual DbSet<T009_Agendamento> T009_Agendamento { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -30,6 +31,7 @@ namespace SistemaAgendamento.Data.Context
             modelBuilder.ApplyConfiguration(new T006_ServicosMap());
             modelBuilder.ApplyConfiguration(new T007_PacoteServicosMap());
             modelBuilder.ApplyConfiguration(new T008_DisponibilidadeMap());
+            modelBuilder.ApplyConfiguration(new T009_AgendamentoMap());
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

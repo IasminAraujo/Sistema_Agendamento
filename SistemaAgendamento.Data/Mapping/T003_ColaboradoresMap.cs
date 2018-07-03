@@ -29,6 +29,10 @@ namespace SistemaAgendamento.Data.Mapping
             builder.HasMany(t => t.T008_Disponibilidade)
                 .WithOne(p => p.T003_Colaboradores)
                 .HasForeignKey(p => p.A003_id);
+
+            builder.HasMany(t => t.T009_Agendamento)
+                .WithOne(p => p.T003_Colaboradores)
+                .HasForeignKey(p => p.A003_id);
         }
         
     }

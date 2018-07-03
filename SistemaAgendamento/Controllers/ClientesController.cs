@@ -27,6 +27,11 @@ namespace SistemaAgendamento.Controllers
             return View();
         }
 
+        public IActionResult Agendar()
+        {
+            return View();
+        }
+
         public IActionResult GetClientes()
         {
             try

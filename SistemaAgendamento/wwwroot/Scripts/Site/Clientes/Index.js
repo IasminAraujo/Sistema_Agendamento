@@ -46,3 +46,11 @@ $('#CorpoTabelaClientes').on('click', '[name=ExcluirCliente]', function (e) {
         $('.modal').modal('show');
     });
 });
+
+$('#CorpoTabelaClientes').on('click', '[name=AgendarCliente]', function (e) {
+    idCliente = $($(this).parent().parent().find("td")[0]).attr('id');
+    $.get("/Clientes/Agendar").done(function (ret) {
+        $('.modal-content').html(ret);
+        $('.modal').modal('show');
+    });
+});

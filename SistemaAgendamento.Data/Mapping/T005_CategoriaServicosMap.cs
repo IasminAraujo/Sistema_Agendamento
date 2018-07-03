@@ -16,6 +16,10 @@ namespace SistemaAgendamento.Data.Mapping
             builder.Property(p => p.A005_nome)
                 .HasMaxLength(255)
                 .IsRequired();
+
+            builder.HasMany(t => t.T009_Agendamento)
+                .WithOne(p => p.T005_CategoriaServicos)
+                .HasForeignKey(p => p.A005_id);
         }
     }
 }

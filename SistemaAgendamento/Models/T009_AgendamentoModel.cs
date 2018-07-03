@@ -9,6 +9,7 @@ namespace SistemaAgendamento.Models
     {
         public int A009_id { get; set; }
         public DateTime A009_data { get; set; }
+        public string A009_dataDT { get; set; }
         public int A003_id { get; set; }
         public int A004_id { get; set; }
         public int A005_id { get; set; }

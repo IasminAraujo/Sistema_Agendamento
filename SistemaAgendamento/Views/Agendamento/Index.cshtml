@@ -1,0 +1,31 @@
+﻿<div class="container">
+    <div id="TabelaAgendamento" class="row">
+        <table class="table table-striped .table-responsive">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Cliente</th>
+                    <th>Categoria</th>
+                    <th>Serviço</th>
+                    <th>Colaborador</th>
+                </tr>
+            </thead>
+            <tbody id="CorpoTabelaAgendamento"></tbody>
+        </table>
+    </div>
+</div>
+<script type="text/x-handlebars" id="TemplateTabelaAgendamentos">
+    {{#Agendamento}}
+    <tr>
+        <td class="hidden" id="{{a009_id}}"></td>
+        <td>{{a009_data}}</td>
+        <td>{{a005_nomecliente}}</td>
+        <td>{{a005_nomecategoria}}</td>
+        <td>{{a005_nomeservico}}</td>
+        <td>{{a005_nomecolaborador}}</td>
+    </tr>
+    {{/Agendamento}}
+    {{^Agendamento}}
+    <h3>Não existem agendamentos gerados!</h3>
+    {{/Agendamento}}
+</script>

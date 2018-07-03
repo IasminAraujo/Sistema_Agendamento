@@ -15,6 +15,11 @@ namespace SistemaAgendamento.Controllers
         {
             return View();
         }
+
+        public IActionResult Excluir()
+        {
+            return View();
+        }
         public IActionResult GetAgendamentos()
         {
             try
@@ -96,6 +101,25 @@ namespace SistemaAgendamento.Controllers
             }
             catch (Exception e)
             {
+                return Json(e.Message);
+            }
+        }
+
+        [HttpGet]
+        public ActionResult ExcluirAgendamento(int id)
+        {
+            try
+            {
+                using (var repository = new T009_AgendamentoRepository())
+                {
+                    var agendamento = repository.Select(id);
+                    repository.Delete(agendamento);
+                }
+                return Json("sucesso");
+            }
+            catch (Exception e)
+            {
+
                 return Json(e.Message);
             }
         }
